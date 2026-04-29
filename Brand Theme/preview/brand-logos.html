@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<style>
+@font-face { font-family:'Georgia'; src:url('../fonts/georgiab.ttf') format('truetype'); font-weight:700; }
+@font-face { font-family:'DM Sans'; src:url('../fonts/DMSans-Light.ttf') format('truetype'); font-weight:300; }
+@font-face { font-family:'DM Sans'; src:url('../fonts/DMSans-Medium.ttf') format('truetype'); font-weight:500; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#1A1A28;font-family:'DM Sans',sans-serif;padding:32px;display:flex;flex-direction:column;gap:24px;}
+
+.slab{border-radius:14px;padding:40px 56px;display:flex;align-items:center;justify-content:center;}
+.lockup{display:flex;align-items:center;gap:16px;}
+
+/* Icon — all sizes use same proportional circle arrangement */
+.icon{background:#6C63FF;border-radius:calc(var(--s)*13/56);position:relative;flex-shrink:0;
+      width:var(--s);height:var(--s);}
+.c{position:absolute;border-radius:50%;background:white;opacity:.55;}
+
+.wordmark{display:flex;flex-direction:column;gap:3px;}
+.name{font-family:'Georgia',serif;font-weight:700;font-size:24px;line-height:1;letter-spacing:-0.02em;display:flex;align-items:baseline;gap:5px;}
+.slogan{font-family:'DM Sans',sans-serif;font-weight:300;font-size:10px;font-style:italic;margin-top:3px;}
+.sz-label{font-size:9px;color:rgba(255,255,255,.25);margin-top:6px;text-align:center;}
+</style>
+
+<script>
+/* Inverted triangle — Option C, tight overlap (37.5% of diameter = 6px overlap, centers 10px apart)
+   Defined as fractions of icon size S, circle radius = S/7
+
+   Centers (in S=56 units):
+     top:    cx=28,  cy=22   → fractions: (0.500, 0.393)
+     bl:     cx=23,  cy=31   → fractions: (0.411, 0.554)
+     br:     cx=33,  cy=31   → fractions: (0.589, 0.554)
+   radius fraction: 8/56 = 0.1429
+*/
+function buildIcon(el) {
+  const S = parseFloat(getComputedStyle(el).getPropertyValue('--s')) ||
+            el.getBoundingClientRect().width;
+  const r = S / 7;
+  const d = r * 2;
+  const circles = [
+    [0.500, 0.393],  // top center
+    [0.411, 0.554],  // bottom left
+    [0.589, 0.554],  // bottom right
+  ];
+  circles.forEach(([fx, fy]) => {
+    const div = document.createElement('div');
+    div.className = 'c';
+    div.style.width  = d + 'px';
+    div.style.height = d + 'px';
+    div.style.left   = (fx * S - r) + 'px';
+    div.style.top    = (fy * S - r) + 'px';
+    el.appendChild(div);
+  });
+}
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.icon').forEach(buildIcon);
+});
+</script>
+</head><body>
+
+<!-- Dark version -->
+<div class="slab" style="background:#0C0C14;border:1px solid rgba(255,255,255,.06);">
+  <div class="lockup">
+    <div class="icon" style="--s:56px;"></div>
+    <div class="wordmark">
+      <div class="name"><span style="color:#fff;">ViiThri</span><span style="color:#8B85FF;">Labs</span></div>
+      <div class="slogan" style="color:rgba(255,255,255,.3);">Where imagination ships.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Light version -->
+<div class="slab" style="background:#FAFAFA;border:1px solid rgba(0,0,0,.06);">
+  <div class="lockup">
+    <div class="icon" style="--s:56px;"></div>
+    <div class="wordmark">
+      <div class="name"><span style="color:#0E0E18;">ViiThri</span><span style="color:#6C63FF;">Labs</span></div>
+      <div class="slogan" style="color:rgba(0,0,0,.28);">Where imagination ships.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Icon mark — all sizes scaled from same fractions -->
+<div style="background:#0C0C14;border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:24px 56px;">
+  <div style="font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:20px;">Icon Mark — All Sizes</div>
+  <div style="display:flex;gap:24px;align-items:flex-end;">
+    <div><div class="icon" style="--s:64px;"></div><div class="sz-label">64px</div></div>
+    <div><div class="icon" style="--s:48px;"></div><div class="sz-label">48px</div></div>
+    <div><div class="icon" style="--s:32px;"></div><div class="sz-label">32px</div></div>
+    <div><div class="icon" style="--s:24px;"></div><div class="sz-label">24px</div></div>
+    <div><div class="icon" style="--s:16px;"></div><div class="sz-label">16px</div></div>
+  </div>
+</div>
+
+</body></html>

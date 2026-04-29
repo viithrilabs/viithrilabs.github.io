@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0C0C14;font-family:'DM Sans',sans-serif;padding:20px;display:flex;flex-direction:column;gap:16px;}
+.row{display:flex;gap:8px;align-items:stretch;}
+.swatch{flex:1;border-radius:8px;padding:14px 12px;display:flex;flex-direction:column;justify-content:space-between;min-height:80px;}
+.swatch-label{font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;opacity:0.8;}
+.swatch-hex{font-size:11px;font-weight:400;opacity:0.6;margin-top:4px;}
+.swatch-name{font-size:11px;font-weight:500;margin-top:auto;padding-top:8px;}
+.section-label{font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:2px;}
+.bg-group{display:flex;gap:8px;}
+.bg-swatch{flex:1;border-radius:8px;padding:12px;min-height:64px;border:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;justify-content:space-between;}
+</style></head><body>
+
+<div class="section-label">Indigo — Primary Brand</div>
+<div class="row">
+  <div class="swatch" style="background:#EEEEFF;color:#14125200;"><div style="color:#322DA3;font-size:10px;font-weight:500;letter-spacing:.08em">50</div><div style="color:#322DA3;font-size:11px;">#EEEEFF</div></div>
+  <div class="swatch" style="background:#D4D3FF;"><div style="color:#322DA3;font-size:10px;font-weight:500;letter-spacing:.08em">100</div><div style="color:#322DA3;font-size:11px;">#D4D3FF</div></div>
+  <div class="swatch" style="background:#B0ADFF;"><div style="color:#221F7A;font-size:10px;font-weight:500;letter-spacing:.08em">200</div><div style="color:#221F7A;font-size:11px;">#B0ADFF</div></div>
+  <div class="swatch" style="background:#8D87FF;"><div style="color:#fff;font-size:10px;font-weight:500;letter-spacing:.08em;opacity:.8">300</div><div style="color:#fff;font-size:11px;opacity:.7">#8D87FF</div></div>
+  <div class="swatch" style="background:#6C63FF;position:relative;"><div style="color:#fff;font-size:10px;font-weight:500;letter-spacing:.08em">400 ★</div><div style="color:#fff;font-size:11px;opacity:.85">#6C63FF</div><div style="font-size:9px;color:#fff;opacity:.6;margin-top:2px">Primary</div></div>
+  <div class="swatch" style="background:#5750E0;"><div style="color:#fff;font-size:10px;font-weight:500;letter-spacing:.08em;opacity:.8">500</div><div style="color:#fff;font-size:11px;opacity:.7">#5750E0</div></div>
+  <div class="swatch" style="background:#443EC2;"><div style="color:#fff;font-size:10px;font-weight:500;letter-spacing:.08em;opacity:.8">600</div><div style="color:#fff;font-size:11px;opacity:.7">#443EC2</div></div>
+  <div class="swatch" style="background:#322DA3;"><div style="color:#fff;font-size:10px;font-weight:500;letter-spacing:.08em;opacity:.8">700</div><div style="color:#fff;font-size:11px;opacity:.7">#322DA3</div></div>
+  <div class="swatch" style="background:#221F7A;"><div style="color:#fff;font-size:10px;font-weight:500;letter-spacing:.08em;opacity:.8">800</div><div style="color:#fff;font-size:11px;opacity:.7">#221F7A</div></div>
+  <div class="swatch" style="background:#141252;"><div style="color:#fff;font-size:10px;font-weight:500;letter-spacing:.08em;opacity:.8">900</div><div style="color:#fff;font-size:11px;opacity:.7">#141252</div></div>
+</div>
+
+<div class="section-label">Dark Backgrounds</div>
+<div class="bg-group">
+  <div class="bg-swatch" style="background:#0C0C14;"><span style="color:rgba(255,255,255,.5);font-size:10px">bg-900</span><span style="color:rgba(255,255,255,.4);font-size:10px">#0C0C14</span></div>
+  <div class="bg-swatch" style="background:#12121E;"><span style="color:rgba(255,255,255,.5);font-size:10px">bg-800</span><span style="color:rgba(255,255,255,.4);font-size:10px">#12121E</span></div>
+  <div class="bg-swatch" style="background:#18182A;"><span style="color:rgba(255,255,255,.5);font-size:10px">bg-700</span><span style="color:rgba(255,255,255,.4);font-size:10px">#18182A</span></div>
+  <div class="bg-swatch" style="background:#20203A;"><span style="color:rgba(255,255,255,.5);font-size:10px">bg-600</span><span style="color:rgba(255,255,255,.4);font-size:10px">#20203A</span></div>
+  <div class="bg-swatch" style="background:#2A2A4A;"><span style="color:rgba(255,255,255,.5);font-size:10px">bg-500</span><span style="color:rgba(255,255,255,.4);font-size:10px">#2A2A4A</span></div>
+</div>
+
+<div class="section-label">Accent Usage</div>
+<div style="display:flex;gap:8px;">
+  <div style="flex:1;background:rgba(108,99,255,0.12);border:1px solid rgba(108,99,255,0.35);border-radius:8px;padding:12px 14px;color:#6C63FF;font-size:11px;font-weight:500;">accent-subtle<br><span style="opacity:.6;font-weight:400">rgba(108,99,255,.12)</span></div>
+  <div style="flex:1;background:#6C63FF;border-radius:8px;padding:12px 14px;color:#fff;font-size:11px;font-weight:500;">accent fill<br><span style="opacity:.7;font-weight:400">#6C63FF</span></div>
+  <div style="flex:1;background:transparent;border:1px solid rgba(108,99,255,0.35);border-radius:8px;padding:12px 14px;color:#8D87FF;font-size:11px;font-weight:500;">accent border<br><span style="opacity:.6;font-weight:400">rgba(..,0.35)</span></div>
+  <div style="flex:1;background:transparent;border-radius:8px;padding:12px 14px;display:flex;align-items:center;gap:8px;"><div style="width:10px;height:10px;background:#6C63FF;border-radius:50%;box-shadow:0 0 12px rgba(108,99,255,0.7);flex-shrink:0"></div><span style="color:rgba(255,255,255,.6);font-size:11px">glow effect</span></div>
+</div>
+
+</body></html>

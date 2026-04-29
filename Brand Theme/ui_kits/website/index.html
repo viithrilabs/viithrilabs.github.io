@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ViiThri Labs — Website UI Kit</title>
+  <style>
+    @font-face { font-family:'Georgia'; src:url('../../fonts/georgia.ttf') format('truetype'); font-weight:400; font-style:normal; }
+    @font-face { font-family:'Georgia'; src:url('../../fonts/georgiab.ttf') format('truetype'); font-weight:700; font-style:normal; }
+    @font-face { font-family:'Georgia'; src:url('../../fonts/georgiai.ttf') format('truetype'); font-weight:400; font-style:italic; }
+    @font-face { font-family:'Georgia'; src:url('../../fonts/georgiaz.ttf') format('truetype'); font-weight:700; font-style:italic; }
+    @font-face { font-family:'DM Sans'; src:url('../../fonts/DMSans-Light.ttf') format('truetype'); font-weight:300; }
+    @font-face { font-family:'DM Sans'; src:url('../../fonts/DMSans-Regular.ttf') format('truetype'); font-weight:400; }
+    @font-face { font-family:'DM Sans'; src:url('../../fonts/DMSans-Medium.ttf') format('truetype'); font-weight:500; }
+    @font-face { font-family:'DM Mono'; src:url('../../fonts/DMMono-Medium.ttf') format('truetype'); font-weight:500; }
+  </style>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      min-height: 100%;
+      background: #0C0C14;
+      font-family: 'DM Sans', sans-serif;
+      color: #fff;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.3; }
+      50% { transform: scale(1.8); opacity: 0; }
+    }
+
+    /* Page nav pill */
+    .page-nav {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(18,18,30,0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 9999px;
+      padding: 6px 8px;
+      display: flex;
+      gap: 4px;
+      z-index: 200;
+    }
+    .page-nav button {
+      background: none;
+      border: none;
+      border-radius: 9999px;
+      padding: 7px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .page-nav button.active {
+      background: #6C63FF;
+      color: #fff;
+    }
+    .page-nav button:hover:not(.active) {
+      color: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.06);
+    }
+  </style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<!-- Page nav -->
+<nav class="page-nav" id="pageNav">
+  <button class="active" data-page="home" onclick="setPage('home')">Coming Soon</button>
+  <button data-page="full" onclick="setPage('full')">Full Site</button>
+  <button data-page="light" onclick="setPage('light')">Light Theme</button>
+</nav>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="Header.jsx"></script>
+<script type="text/babel" src="Hero.jsx"></script>
+<script type="text/babel" src="Services.jsx"></script>
+<script type="text/babel" src="Footer.jsx"></script>
+
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+/* ── Page: Coming Soon (faithful to live site) ── */
+const ComingSoonPage = () => (
+  <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <VLHero />
+  </div>
+);
+
+/* ── Page: Full Site (dark) ── */
+const FullSitePage = () => {
+  const [activePage, setActivePage] = useState('home');
+
+  const pageContent = {
+    home: (
+      <>
+        <VLHero />
+        <VLServices theme="dark" />
+        <VLFooter theme="dark" />
+      </>
+    ),
+    services: (
+      <>
+        <div style={{ paddingTop: 80 }}>
+          <VLServices theme="dark" />
+        </div>
+        <VLFooter theme="dark" />
+      </>
+    ),
+    about: (
+      <div style={{ minHeight: 'calc(100vh - 64px)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 16, padding: 48 }}>
+        <div style={{ fontFamily: 'Georgia, serif', fontSize: '2rem', fontWeight: 700, color: '#fff', textAlign: 'center' }}>About page</div>
+        <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '1rem', color: 'rgba(255,255,255,0.45)', textAlign: 'center', maxWidth: 400 }}>This section is under construction — navigate to Coming Soon or Full Site to see the live components.</div>
+      </div>
+    ),
+    work: (
+      <div style={{ minHeight: 'calc(100vh - 64px)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 16, padding: 48 }}>
+        <div style={{ fontFamily: 'Georgia, serif', fontSize: '2rem', fontWeight: 700, color: '#fff', textAlign: 'center' }}>Our Work</div>
+        <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '1rem', color: 'rgba(255,255,255,0.45)', textAlign: 'center', maxWidth: 400 }}>Portfolio section placeholder — projects to be added as the site develops.</div>
+      </div>
+    ),
+    contact: (
+      <div style={{ minHeight: 'calc(100vh - 64px)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ background: '#12121E', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 20, padding: 48, maxWidth: 480, width: '100%', margin: '0 32px' }}>
+          <div style={{ fontFamily: 'Georgia, serif', fontSize: '2rem', fontWeight: 700, color: '#fff', marginBottom: 8 }}>Get in Touch</div>
+          <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.95rem', color: 'rgba(255,255,255,0.5)', marginBottom: 32, lineHeight: 1.7 }}>Have a project in mind? We'd love to hear from you.</div>
+          <input type="text" placeholder="Your name" style={{ width: '100%', background: '#18182A', border: '1.5px solid rgba(255,255,255,0.1)', borderRadius: 8, padding: '12px 14px', fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: '#fff', outline: 'none', marginBottom: 12, display: 'block' }} />
+          <input type="email" placeholder="your@email.com" style={{ width: '100%', background: '#18182A', border: '1.5px solid rgba(255,255,255,0.1)', borderRadius: 8, padding: '12px 14px', fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: '#fff', outline: 'none', marginBottom: 12, display: 'block' }} />
+          <textarea placeholder="Tell us about your project…" rows="4" style={{ width: '100%', background: '#18182A', border: '1.5px solid rgba(255,255,255,0.1)', borderRadius: 8, padding: '12px 14px', fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: '#fff', outline: 'none', marginBottom: 20, display: 'block', resize: 'vertical' }} />
+          <button style={{ width: '100%', background: '#6C63FF', color: '#fff', border: 'none', borderRadius: 8, padding: '14px', fontFamily: "'DM Sans', sans-serif", fontSize: 15, fontWeight: 500, cursor: 'pointer' }}>Send Message</button>
+          <div style={{ marginTop: 20, textAlign: 'center', fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: 'rgba(255,255,255,0.35)' }}>Or email us directly at <a href="mailto:support@viithrilabs.in" style={{ color: '#8D87FF' }}>support@viithrilabs.in</a></div>
+        </div>
+      </div>
+    ),
+  };
+
+  return (
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#0C0C14' }}>
+      <VLHeader theme="dark" activePage={activePage} onNav={setActivePage} />
+      {pageContent[activePage] || pageContent.home}
+    </div>
+  );
+};
+
+/* ── Page: Light Theme ── */
+const LightThemePage = () => {
+  const [activePage, setActivePage] = useState('home');
+
+  return (
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#FAFAFA' }}>
+      <VLHeader theme="light" activePage={activePage} onNav={setActivePage} />
+      <VLServices theme="light" />
+      <VLFooter theme="light" />
+    </div>
+  );
+};
+
+/* ── Root App ── */
+const App = () => {
+  const [page, setPage] = useState('home');
+
+  useEffect(() => {
+    window.setPage = (p) => {
+      setPage(p);
+      document.querySelectorAll('.page-nav button').forEach(b => {
+        b.classList.toggle('active', b.dataset.page === p);
+      });
+    };
+  }, []);
+
+  if (page === 'full') return <FullSitePage />;
+  if (page === 'light') return <LightThemePage />;
+  return <ComingSoonPage />;
+};
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<style>
+@font-face { font-family:'Georgia'; src:url('../fonts/georgiab.ttf') format('truetype'); font-weight:700; }
+@font-face { font-family:'DM Sans'; src:url('../fonts/DMSans-Light.ttf') format('truetype'); font-weight:300; }
+@font-face { font-family:'DM Sans'; src:url('../fonts/DMSans-Medium.ttf') format('truetype'); font-weight:500; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0C0C14;font-family:'DM Sans',sans-serif;padding:36px;display:flex;flex-direction:column;gap:40px;}
+
+.option-label{font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px;}
+.option-title{font-size:13px;font-weight:500;color:rgba(255,255,255,.55);margin-bottom:4px;}
+.option-desc{font-size:11px;font-weight:300;color:rgba(255,255,255,.3);margin-bottom:20px;}
+
+.lockup{display:flex;align-items:center;gap:16px;}
+.icon{width:56px;height:56px;background:#6C63FF;border-radius:13px;flex-shrink:0;position:relative;}
+/* crisp circles — no blur, no filter */
+.c{position:absolute;border-radius:50%;background:white;opacity:.55;}
+.wordmark{display:flex;flex-direction:column;gap:3px;}
+.name{font-family:'Georgia',serif;font-weight:700;font-size:24px;line-height:1;letter-spacing:-0.02em;display:flex;align-items:baseline;gap:5px;}
+.slogan{font-family:'DM Sans',sans-serif;font-weight:300;font-size:10px;font-style:italic;margin-top:3px;}
+
+.divider{height:1px;background:rgba(255,255,255,.06);}
+
+.row{display:flex;gap:48px;align-items:flex-start;}
+.col{flex:1;}
+</style></head><body>
+
+<div class="option-label">Logo Options — A vs C</div>
+
+<div class="row">
+
+  <!-- ── OPTION A: Diagonal stack ── -->
+  <div class="col">
+    <div class="option-title">Option A — Diagonal</div>
+    <div class="option-desc">Top-left to bottom-right, flowing sequence</div>
+
+    <!-- Dark -->
+    <div style="background:#0C0C14;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:32px 36px;margin-bottom:10px;">
+      <div class="lockup">
+        <div class="icon">
+          <!-- c1 top-left: center (18,18) → top-left corner at (10,10) -->
+          <div class="c" style="width:16px;height:16px;left:10px;top:10px;"></div>
+          <!-- c2 center: center (28,28) → top-left at (20,20) -->
+          <div class="c" style="width:16px;height:16px;left:20px;top:20px;"></div>
+          <!-- c3 bottom-right: center (38,38) → top-left at (30,30) -->
+          <div class="c" style="width:16px;height:16px;left:30px;top:30px;"></div>
+        </div>
+        <div class="wordmark">
+          <div class="name"><span style="color:#fff;">ViiThri</span><span style="color:#8B85FF;">Labs</span></div>
+          <div class="slogan" style="color:rgba(255,255,255,.3);">Where imagination ships.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Light -->
+    <div style="background:#FAFAFA;border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:32px 36px;">
+      <div class="lockup">
+        <div class="icon">
+          <div class="c" style="width:16px;height:16px;left:10px;top:10px;"></div>
+          <div class="c" style="width:16px;height:16px;left:20px;top:20px;"></div>
+          <div class="c" style="width:16px;height:16px;left:30px;top:30px;"></div>
+        </div>
+        <div class="wordmark">
+          <div class="name"><span style="color:#0E0E18;">ViiThri</span><span style="color:#6C63FF;">Labs</span></div>
+          <div class="slogan" style="color:rgba(0,0,0,.28);">Where imagination ships.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Icon sizes -->
+    <div style="margin-top:16px;display:flex;gap:14px;align-items:flex-end;">
+      <div style="text-align:center;">
+        <div style="width:48px;height:48px;background:#6C63FF;border-radius:11px;position:relative;">
+          <div class="c" style="width:13px;height:13px;left:7px;top:7px;"></div>
+          <div class="c" style="width:13px;height:13px;left:17px;top:17px;"></div>
+          <div class="c" style="width:13px;height:13px;left:27px;top:27px;"></div>
+        </div>
+        <div style="font-size:9px;color:rgba(255,255,255,.25);margin-top:4px;">48</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:32px;height:32px;background:#6C63FF;border-radius:7px;position:relative;">
+          <div class="c" style="width:9px;height:9px;left:4px;top:4px;"></div>
+          <div class="c" style="width:9px;height:9px;left:11px;top:11px;"></div>
+          <div class="c" style="width:9px;height:9px;left:18px;top:18px;"></div>
+        </div>
+        <div style="font-size:9px;color:rgba(255,255,255,.25);margin-top:4px;">32</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:24px;height:24px;background:#6C63FF;border-radius:5px;position:relative;">
+          <div class="c" style="width:7px;height:7px;left:3px;top:3px;"></div>
+          <div class="c" style="width:7px;height:7px;left:8px;top:8px;"></div>
+          <div class="c" style="width:7px;height:7px;left:13px;top:13px;"></div>
+        </div>
+        <div style="font-size:9px;color:rgba(255,255,255,.25);margin-top:4px;">24</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── OPTION C: Inverted triangle ── -->
+  <div class="col">
+    <div class="option-title">Option C — Inverted Triangle</div>
+    <div class="option-desc">One on top, two below — crown / upward momentum</div>
+
+    <!-- Dark -->
+    <div style="background:#0C0C14;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:32px 36px;margin-bottom:10px;">
+      <div class="lockup">
+        <div class="icon">
+          <!-- top center: cx=28, cy=20 → left=20, top=12 -->
+          <div class="c" style="width:16px;height:16px;left:20px;top:12px;"></div>
+          <!-- bottom-left: cx=21, cy=32 → left=13, top=24 -->
+          <div class="c" style="width:16px;height:16px;left:13px;top:24px;"></div>
+          <!-- bottom-right: cx=35, cy=32 → left=27, top=24 -->
+          <div class="c" style="width:16px;height:16px;left:27px;top:24px;"></div>
+        </div>
+        <div class="wordmark">
+          <div class="name"><span style="color:#fff;">ViiThri</span><span style="color:#8B85FF;">Labs</span></div>
+          <div class="slogan" style="color:rgba(255,255,255,.3);">Where imagination ships.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Light -->
+    <div style="background:#FAFAFA;border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:32px 36px;">
+      <div class="lockup">
+        <div class="icon">
+          <div class="c" style="width:16px;height:16px;left:20px;top:12px;"></div>
+          <div class="c" style="width:16px;height:16px;left:13px;top:24px;"></div>
+          <div class="c" style="width:16px;height:16px;left:27px;top:24px;"></div>
+        </div>
+        <div class="wordmark">
+          <div class="name"><span style="color:#0E0E18;">ViiThri</span><span style="color:#6C63FF;">Labs</span></div>
+          <div class="slogan" style="color:rgba(0,0,0,.28);">Where imagination ships.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Icon sizes -->
+    <div style="margin-top:16px;display:flex;gap:14px;align-items:flex-end;">
+      <div style="text-align:center;">
+        <div style="width:48px;height:48px;background:#6C63FF;border-radius:11px;position:relative;">
+          <!-- scale: 56→48, factor=0.857 -->
+          <div class="c" style="width:13px;height:13px;left:17px;top:9px;"></div>
+          <div class="c" style="width:13px;height:13px;left:10px;top:20px;"></div>
+          <div class="c" style="width:13px;height:13px;left:24px;top:20px;"></div>
+        </div>
+        <div style="font-size:9px;color:rgba(255,255,255,.25);margin-top:4px;">48</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:32px;height:32px;background:#6C63FF;border-radius:7px;position:relative;">
+          <div class="c" style="width:9px;height:9px;left:11px;top:5px;"></div>
+          <div class="c" style="width:9px;height:9px;left:6px;top:13px;"></div>
+          <div class="c" style="width:9px;height:9px;left:16px;top:13px;"></div>
+        </div>
+        <div style="font-size:9px;color:rgba(255,255,255,.25);margin-top:4px;">32</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:24px;height:24px;background:#6C63FF;border-radius:5px;position:relative;">
+          <div class="c" style="width:7px;height:7px;left:8px;top:3px;"></div>
+          <div class="c" style="width:7px;height:7px;left:4px;top:9px;"></div>
+          <div class="c" style="width:7px;height:7px;left:12px;top:9px;"></div>
+        </div>
+        <div style="font-size:9px;color:rgba(255,255,255,.25);margin-top:4px;">24</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body></html>

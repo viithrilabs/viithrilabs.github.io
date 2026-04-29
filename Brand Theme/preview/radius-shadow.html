@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0C0C14;font-family:'DM Sans',sans-serif;padding:24px;display:flex;flex-direction:column;gap:16px;}
+.label{font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px;}
+.divider{height:1px;background:rgba(255,255,255,.06);}
+.shadow-row{display:flex;gap:16px;flex-wrap:wrap;}
+.shadow-card{background:#12121E;border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:4px;min-width:120px;}
+.shadow-name{font-size:11px;font-weight:500;color:rgba(255,255,255,.7);}
+.shadow-val{font-size:9px;color:rgba(255,255,255,.3);}
+</style></head><body>
+
+<div>
+  <div class="label">Shadow System — Dark Theme</div>
+  <div class="shadow-row">
+    <div class="shadow-card" style="box-shadow:0 1px 3px rgba(0,0,0,0.6);">
+      <div class="shadow-name">shadow-sm</div>
+      <div class="shadow-val">0 1px 3px rgba(0,0,0,.6)</div>
+    </div>
+    <div class="shadow-card" style="box-shadow:0 4px 16px rgba(0,0,0,0.5);">
+      <div class="shadow-name">shadow-md</div>
+      <div class="shadow-val">0 4px 16px rgba(0,0,0,.5)</div>
+    </div>
+    <div class="shadow-card" style="box-shadow:0 12px 40px rgba(0,0,0,0.6);">
+      <div class="shadow-name">shadow-lg</div>
+      <div class="shadow-val">0 12px 40px rgba(0,0,0,.6)</div>
+    </div>
+    <div class="shadow-card" style="box-shadow:0 0 24px rgba(108,99,255,0.25);border:1px solid rgba(108,99,255,.2);">
+      <div class="shadow-name" style="color:#8D87FF;">shadow-glow</div>
+      <div class="shadow-val">0 0 24px rgba(108,99,255,.25)</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div>
+  <div class="label">Elevation Layers</div>
+  <div style="position:relative;height:100px;display:flex;align-items:center;padding-left:12px;gap:0;">
+    <div style="background:#0C0C14;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:10px 14px;font-size:11px;color:rgba(255,255,255,.35);z-index:1;">bg-base<br><span style="font-size:9px;">#0C0C14</span></div>
+    <div style="background:#12121E;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 14px;font-size:11px;color:rgba(255,255,255,.5);z-index:2;margin-left:-8px;box-shadow:0 1px 3px rgba(0,0,0,.6);">surface<br><span style="font-size:9px;">#12121E</span></div>
+    <div style="background:#18182A;border:1px solid rgba(255,255,255,.10);border-radius:10px;padding:10px 14px;font-size:11px;color:rgba(255,255,255,.65);z-index:3;margin-left:-8px;box-shadow:0 4px 16px rgba(0,0,0,.5);">elevated<br><span style="font-size:9px;">#18182A</span></div>
+    <div style="background:#20203A;border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;font-size:11px;color:rgba(255,255,255,.8);z-index:4;margin-left:-8px;box-shadow:0 8px 28px rgba(0,0,0,.5);">overlay<br><span style="font-size:9px;">#20203A</span></div>
+  </div>
+</div>
+
+</body></html>

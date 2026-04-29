@@ -1,0 +1,186 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<style>
+@font-face { font-family:'Georgia'; src:url('../fonts/georgiab.ttf') format('truetype'); font-weight:700; }
+@font-face { font-family:'DM Sans'; src:url('../fonts/DMSans-Light.ttf') format('truetype'); font-weight:300; }
+@font-face { font-family:'DM Sans'; src:url('../fonts/DMSans-Medium.ttf') format('truetype'); font-weight:500; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0C0C14;font-family:'DM Sans',sans-serif;padding:32px;display:flex;flex-direction:column;gap:28px;}
+
+.grid{display:flex;gap:24px;}
+.col{flex:1;display:flex;flex-direction:column;gap:10px;}
+.opt-label{font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:4px;}
+.opt-title{font-size:13px;font-weight:500;color:rgba(255,255,255,.6);margin-bottom:2px;}
+.opt-desc{font-size:11px;font-weight:300;color:rgba(255,255,255,.28);line-height:1.5;margin-bottom:14px;}
+
+.slab-dark{background:#0C0C14;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:28px 32px;display:flex;align-items:center;gap:14px;}
+.slab-light{background:#FAFAFA;border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:28px 32px;display:flex;align-items:center;gap:14px;}
+.wm{display:flex;flex-direction:column;gap:3px;}
+.name{font-family:'Georgia',serif;font-weight:700;font-size:20px;line-height:1;letter-spacing:-0.02em;display:flex;align-items:baseline;gap:4px;}
+.slogan{font-family:'DM Sans',sans-serif;font-weight:300;font-size:9px;font-style:italic;margin-top:2px;}
+
+/* Base SVG icon circles (same for all options, drawn via JS) */
+</style></head><body>
+
+<div class="grid">
+
+  <!-- ── OPTION 1: Solid bright core ── -->
+  <div class="col">
+    <div class="opt-label">Option 1</div>
+    <div class="opt-title">Solid Bright Core</div>
+    <div class="opt-desc">A pure white nucleus emerges at the center. Three forces converge into one point.</div>
+
+    <div class="slab-dark">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="56" height="56" rx="13" fill="#6C63FF"/>
+        <circle cx="28" cy="22" r="8" fill="white" fill-opacity="0.52"/>
+        <circle cx="23" cy="31" r="8" fill="white" fill-opacity="0.52"/>
+        <circle cx="33" cy="31" r="8" fill="white" fill-opacity="0.52"/>
+        <!-- solid white nucleus at centroid (28,28) -->
+        <circle cx="28" cy="28" r="3.5" fill="white" fill-opacity="1"/>
+      </svg>
+      <div class="wm">
+        <div class="name"><span style="color:#fff;">ViiThri</span><span style="color:#8B85FF;">Labs</span></div>
+        <div class="slogan" style="color:rgba(255,255,255,.28);">Where imagination ships.</div>
+      </div>
+    </div>
+
+    <div class="slab-light">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="56" height="56" rx="13" fill="#6C63FF"/>
+        <circle cx="28" cy="22" r="8" fill="white" fill-opacity="0.52"/>
+        <circle cx="23" cy="31" r="8" fill="white" fill-opacity="0.52"/>
+        <circle cx="33" cy="31" r="8" fill="white" fill-opacity="0.52"/>
+        <circle cx="28" cy="28" r="3.5" fill="white" fill-opacity="1"/>
+      </svg>
+      <div class="wm">
+        <div class="name"><span style="color:#0E0E18;">ViiThri</span><span style="color:#6C63FF;">Labs</span></div>
+        <div class="slogan" style="color:rgba(0,0,0,.26);">Where imagination ships.</div>
+      </div>
+    </div>
+
+    <!-- Large isolated icon -->
+    <div style="display:flex;justify-content:center;padding:20px 0 4px;">
+      <svg width="80" height="80" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="56" height="56" rx="13" fill="#6C63FF"/>
+        <circle cx="28" cy="22" r="8" fill="white" fill-opacity="0.52"/>
+        <circle cx="23" cy="31" r="8" fill="white" fill-opacity="0.52"/>
+        <circle cx="33" cy="31" r="8" fill="white" fill-opacity="0.52"/>
+        <circle cx="28" cy="28" r="3.5" fill="white" fill-opacity="1"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ── OPTION 2: Opacity stacking / subtle boost ── -->
+  <div class="col">
+    <div class="opt-label">Option 2</div>
+    <div class="opt-title">Opacity Stacking</div>
+    <div class="opt-desc">A fourth translucent layer at the centroid gently lifts the center. Feels like the source of light.</div>
+
+    <div class="slab-dark">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="56" height="56" rx="13" fill="#6C63FF"/>
+        <circle cx="28" cy="22" r="8" fill="white" fill-opacity="0.52"/>
+        <circle cx="23" cy="31" r="8" fill="white" fill-opacity="0.52"/>
+        <circle cx="33" cy="31" r="8" fill="white" fill-opacity="0.52"/>
+        <!-- soft booster at centroid — same opacity as one circle, makes center feel brighter -->
+        <circle cx="28" cy="28" r="5.5" fill="white" fill-opacity="0.38"/>
+      </svg>
+      <div class="wm">
+        <div class="name"><span style="color:#fff;">ViiThri</span><span style="color:#8B85FF;">Labs</span></div>
+        <div class="slogan" style="color:rgba(255,255,255,.28);">Where imagination ships.</div>
+      </div>
+    </div>
+
+    <div class="slab-light">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="56" height="56" rx="13" fill="#6C63FF"/>
+        <circle cx="28" cy="22" r="8" fill="white" fill-opacity="0.52"/>
+        <circle cx="23" cy="31" r="8" fill="white" fill-opacity="0.52"/>
+        <circle cx="33" cy="31" r="8" fill="white" fill-opacity="0.52"/>
+        <circle cx="28" cy="28" r="5.5" fill="white" fill-opacity="0.38"/>
+      </svg>
+      <div class="wm">
+        <div class="name"><span style="color:#0E0E18;">ViiThri</span><span style="color:#6C63FF;">Labs</span></div>
+        <div class="slogan" style="color:rgba(0,0,0,.26);">Where imagination ships.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:center;padding:20px 0 4px;">
+      <svg width="80" height="80" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="56" height="56" rx="13" fill="#6C63FF"/>
+        <circle cx="28" cy="22" r="8" fill="white" fill-opacity="0.52"/>
+        <circle cx="23" cy="31" r="8" fill="white" fill-opacity="0.52"/>
+        <circle cx="33" cy="31" r="8" fill="white" fill-opacity="0.52"/>
+        <circle cx="28" cy="28" r="5.5" fill="white" fill-opacity="0.38"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ── OPTION 3: Negative space cutout ── -->
+  <div class="col">
+    <div class="opt-label">Option 3</div>
+    <div class="opt-title">Negative Space Core</div>
+    <div class="opt-desc">A small circle punched out at the center — the eye of the storm. Calm at the heart of convergence.</div>
+
+    <div class="slab-dark">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <mask id="cutout-a">
+            <rect width="56" height="56" fill="white"/>
+            <circle cx="28" cy="28" r="3.5" fill="black"/>
+          </mask>
+        </defs>
+        <rect width="56" height="56" rx="13" fill="#6C63FF"/>
+        <g mask="url(#cutout-a)">
+          <circle cx="28" cy="22" r="8" fill="white" fill-opacity="0.55"/>
+          <circle cx="23" cy="31" r="8" fill="white" fill-opacity="0.55"/>
+          <circle cx="33" cy="31" r="8" fill="white" fill-opacity="0.55"/>
+        </g>
+      </svg>
+      <div class="wm">
+        <div class="name"><span style="color:#fff;">ViiThri</span><span style="color:#8B85FF;">Labs</span></div>
+        <div class="slogan" style="color:rgba(255,255,255,.28);">Where imagination ships.</div>
+      </div>
+    </div>
+
+    <div class="slab-light">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <mask id="cutout-b">
+            <rect width="56" height="56" fill="white"/>
+            <circle cx="28" cy="28" r="3.5" fill="black"/>
+          </mask>
+        </defs>
+        <rect width="56" height="56" rx="13" fill="#6C63FF"/>
+        <g mask="url(#cutout-b)">
+          <circle cx="28" cy="22" r="8" fill="white" fill-opacity="0.55"/>
+          <circle cx="23" cy="31" r="8" fill="white" fill-opacity="0.55"/>
+          <circle cx="33" cy="31" r="8" fill="white" fill-opacity="0.55"/>
+        </g>
+      </svg>
+      <div class="wm">
+        <div class="name"><span style="color:#0E0E18;">ViiThri</span><span style="color:#6C63FF;">Labs</span></div>
+        <div class="slogan" style="color:rgba(0,0,0,.26);">Where imagination ships.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:center;padding:20px 0 4px;">
+      <svg width="80" height="80" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <mask id="cutout-c">
+            <rect width="56" height="56" fill="white"/>
+            <circle cx="28" cy="28" r="3.5" fill="black"/>
+          </mask>
+        </defs>
+        <rect width="56" height="56" rx="13" fill="#6C63FF"/>
+        <g mask="url(#cutout-c)">
+          <circle cx="28" cy="22" r="8" fill="white" fill-opacity="0.55"/>
+          <circle cx="23" cy="31" r="8" fill="white" fill-opacity="0.55"/>
+          <circle cx="33" cy="31" r="8" fill="white" fill-opacity="0.55"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+</div>
+</body></html>

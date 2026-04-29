@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0C0C14;font-family:'DM Sans',sans-serif;padding:24px;display:flex;flex-direction:column;gap:20px;}
+.label{font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px;}
+.divider{height:1px;background:rgba(255,255,255,.06);}
+.row{display:flex;gap:14px;flex-wrap:wrap;}
+/* Card base */
+.card{background:#12121E;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px;transition:border-color .2s, box-shadow .2s;}
+.card:hover{border-color:rgba(108,99,255,.35);box-shadow:0 4px 20px rgba(0,0,0,.4);}
+.card-accent{border-color:rgba(108,99,255,.3);box-shadow:0 0 20px rgba(108,99,255,.12);}
+/* Product card */
+.product-card{width:200px;}
+.product-icon{width:40px;height:40px;border-radius:10px;background:rgba(108,99,255,.2);border:1px solid rgba(108,99,255,.3);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.product-title{font-size:14px;font-weight:600;color:#fff;margin-bottom:6px;}
+.product-desc{font-size:12px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.6;}
+/* Stats card */
+.stat-card{width:130px;text-align:center;}
+.stat-num{font-family:Georgia,serif;font-size:32px;font-weight:700;color:#6C63FF;line-height:1;}
+.stat-label{font-size:11px;font-weight:400;color:rgba(255,255,255,.4);margin-top:6px;}
+/* Alert card */
+.alert{border-radius:10px;padding:14px 16px;display:flex;gap:10px;align-items:flex-start;}
+</style></head><body>
+
+<div>
+  <div class="label">Product Cards</div>
+  <div class="row">
+    <div class="card product-card">
+      <div class="product-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8D87FF" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <div class="product-title">Web Apps</div>
+      <div class="product-desc">Full-stack web applications and digital experiences</div>
+    </div>
+    <div class="card product-card card-accent">
+      <div class="product-icon" style="background:rgba(108,99,255,.3);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0ADFF" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1" fill="#B0ADFF"/></svg>
+      </div>
+      <div class="product-title">Mobile Apps</div>
+      <div class="product-desc">iOS and Android apps built for performance</div>
+    </div>
+    <div class="card product-card">
+      <div class="product-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8D87FF" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="product-title">Games</div>
+      <div class="product-desc">Engaging game experiences across all platforms</div>
+    </div>
+    <div class="card product-card">
+      <div class="product-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8D87FF" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      </div>
+      <div class="product-title">Tools</div>
+      <div class="product-desc">Productivity tools and developer utilities</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div>
+  <div class="label">Stat Cards</div>
+  <div class="row">
+    <div class="card stat-card"><div class="stat-num">12+</div><div class="stat-label">Products Built</div></div>
+    <div class="card stat-card"><div class="stat-num">5</div><div class="stat-label">Active Projects</div></div>
+    <div class="card stat-card"><div class="stat-num">3</div><div class="stat-label">Years Active</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div>
+  <div class="label">Alert / Notification Cards</div>
+  <div style="display:flex;flex-direction:column;gap:8px;max-width:420px;">
+    <div class="alert" style="background:#0D2E1A;border:1px solid #166534;">
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#4ADE80" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#4ADE80" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span style="font-size:13px;color:#4ADE80;">You're on the list! We'll reach out when we launch.</span>
+    </div>
+    <div class="alert" style="background:#2E1F00;border:1px solid #92400E;">
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 3L18 17H2L10 3z" stroke="#FBBF24" stroke-width="1.5"/><path d="M10 9v4M10 14.5v.5" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span style="font-size:13px;color:#FBBF24;">This product is in early access — expect rough edges.</span>
+    </div>
+  </div>
+</div>
+
+</body></html>

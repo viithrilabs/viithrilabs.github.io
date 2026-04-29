@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0C0C14;font-family:'DM Sans',sans-serif;padding:24px;display:flex;flex-direction:column;gap:18px;}
+.label{font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:8px;}
+.divider{height:1px;background:rgba(255,255,255,.06);}
+.field{display:flex;flex-direction:column;gap:6px;max-width:340px;}
+.field-label{font-size:11px;font-weight:500;color:rgba(255,255,255,.6);}
+.input{background:#12121E;border:1.5px solid rgba(255,255,255,.1);border-radius:8px;padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:14px;color:#fff;outline:none;width:100%;}
+.input::placeholder{color:rgba(255,255,255,.25);}
+.input-focus{border-color:rgba(108,99,255,.6);box-shadow:0 0 0 3px rgba(108,99,255,.15);}
+.input-error{border-color:rgba(248,113,113,.5);box-shadow:0 0 0 3px rgba(248,113,113,.1);}
+.input-success{border-color:rgba(74,222,128,.4);}
+.helper{font-size:11px;color:rgba(255,255,255,.35);}
+.helper-error{color:#F87171;}
+.row{display:flex;gap:12px;}
+/* Pill form (Oven style) */
+.pill-form{display:flex;background:#12121E;border:1.5px solid rgba(255,255,255,.1);border-radius:9999px;padding:4px 4px 4px 18px;align-items:center;max-width:380px;}
+.pill-form input{flex:1;background:transparent;border:none;outline:none;font-family:'DM Sans',sans-serif;font-size:14px;color:#fff;}
+.pill-form input::placeholder{color:rgba(255,255,255,.25);}
+.pill-btn{background:#6C63FF;color:#fff;border:none;border-radius:9999px;padding:10px 20px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;}
+</style></head><body>
+
+<div class="row">
+  <div class="field">
+    <div class="label">Default</div>
+    <input class="input" placeholder="your@email.com" type="email">
+    <div class="helper">Helper text or description</div>
+  </div>
+  <div class="field">
+    <div class="label">Focused</div>
+    <input class="input input-focus" placeholder="your@email.com" type="email" value="hello@viithrilabs.in">
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <div class="label">Error State</div>
+    <input class="input input-error" value="not-an-email" type="email">
+    <div class="helper helper-error">Please enter a valid email address</div>
+  </div>
+  <div class="field">
+    <div class="label">Success State</div>
+    <input class="input input-success" value="hello@viithrilabs.in" type="email">
+    <div class="helper" style="color:#4ADE80;">Looks good!</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div>
+  <div class="label">Pill Form (compact / Oven pattern)</div>
+  <div class="pill-form">
+    <input placeholder="your@email.com" type="email">
+    <button class="pill-btn">Notify Me</button>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div style="max-width:340px;">
+  <div class="label">Textarea</div>
+  <textarea class="input" rows="3" placeholder="Tell us about your project…" style="resize:vertical;"></textarea>
+</div>
+
+</body></html>

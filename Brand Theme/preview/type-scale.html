@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<style>
+@font-face { font-family:'Georgia'; src:url('../fonts/georgia.ttf') format('truetype'); font-weight:400; font-style:normal; }
+@font-face { font-family:'Georgia'; src:url('../fonts/georgiab.ttf') format('truetype'); font-weight:700; font-style:normal; }
+@font-face { font-family:'Georgia'; src:url('../fonts/georgiai.ttf') format('truetype'); font-weight:400; font-style:italic; }
+@font-face { font-family:'DM Sans'; src:url('../fonts/DMSans-Light.ttf') format('truetype'); font-weight:300; }
+@font-face { font-family:'DM Sans'; src:url('../fonts/DMSans-Regular.ttf') format('truetype'); font-weight:400; }
+@font-face { font-family:'DM Sans'; src:url('../fonts/DMSans-Medium.ttf') format('truetype'); font-weight:500; }
+@font-face { font-family:'DM Mono'; src:url('../fonts/DMMono-Medium.ttf') format('truetype'); font-weight:500; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0C0C14;font-family:'DM Sans',sans-serif;padding:24px;display:flex;flex-direction:column;gap:4px;}
+.row{display:flex;align-items:baseline;gap:14px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05);}
+.sz{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);width:56px;flex-shrink:0;}
+.px{font-size:9px;color:rgba(255,255,255,.22);width:40px;flex-shrink:0;}
+.use{font-size:9px;color:rgba(255,255,255,.22);margin-left:auto;text-align:right;}
+</style></head><body>
+
+<div class="row">
+  <div class="sz">4xl</div>
+  <div style="font-family:'Georgia',serif;font-size:clamp(26px,3.815rem,62px);font-weight:700;color:#fff;line-height:1.1;letter-spacing:-.02em;">Display Hero</div>
+  <div class="px">61px</div><div class="use">Hero headlines</div>
+</div>
+<div class="row">
+  <div class="sz">3xl</div>
+  <div style="font-family:'Georgia',serif;font-size:3.052rem;font-weight:700;color:#fff;line-height:1.15;letter-spacing:-.02em;">Page Heading</div>
+  <div class="px">49px</div><div class="use">Section titles</div>
+</div>
+<div class="row">
+  <div class="sz">2xl</div>
+  <div style="font-family:'Georgia',serif;font-size:2.441rem;font-weight:700;color:#fff;line-height:1.2;">Card Heading</div>
+  <div class="px">39px</div><div class="use">Feature titles</div>
+</div>
+<div class="row">
+  <div class="sz">xl</div>
+  <div style="font-family:'Georgia',serif;font-size:1.953rem;font-weight:400;font-style:italic;color:rgba(255,255,255,.85);line-height:1.3;">Sub Heading</div>
+  <div class="px">31px</div><div class="use">h3 italic</div>
+</div>
+<div class="row">
+  <div class="sz">lg</div>
+  <div style="font-family:'DM Sans',sans-serif;font-size:1.563rem;font-weight:500;color:rgba(255,255,255,.85);">Section Label</div>
+  <div class="px">25px</div><div class="use">h4 elements</div>
+</div>
+<div class="row">
+  <div class="sz">md</div>
+  <div style="font-family:'DM Sans',sans-serif;font-size:1.25rem;font-weight:500;color:rgba(255,255,255,.8);">Lead Text</div>
+  <div class="px">20px</div><div class="use">h5, lead paras</div>
+</div>
+<div class="row">
+  <div class="sz">base</div>
+  <div style="font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:300;color:rgba(255,255,255,.68);">Body paragraph text reads at comfortable size</div>
+  <div class="px">16px</div><div class="use">Body copy</div>
+</div>
+<div class="row">
+  <div class="sz">sm</div>
+  <div style="font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:400;color:rgba(255,255,255,.45);">Caption and helper text</div>
+  <div class="px">13px</div><div class="use">Captions, meta</div>
+</div>
+<div class="row">
+  <div class="sz">xs</div>
+  <div style="font-family:'DM Sans',sans-serif;font-size:.64rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.32);">LABEL · EYEBROW</div>
+  <div class="px">10px</div><div class="use">Labels, badges</div>
+</div>
+<div class="row" style="border-bottom:none;">
+  <div class="sz">mono</div>
+  <div style="font-family:'DM Mono',monospace;font-size:.8rem;font-weight:500;color:#8D87FF;background:rgba(108,99,255,.1);padding:2px 8px;border-radius:4px;">console.log('hello')</div>
+  <div class="px">13px</div><div class="use">Code, tokens</div>
+</div>
+
+</body></html>
