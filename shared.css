@@ -40,7 +40,7 @@
 
 /* RESET */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-snap-type:y proximity}
+html{scroll-behavior:smooth}
 body{background:var(--bg-base);color:var(--fg-1);font-family:var(--font-b);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased}
 *{user-select:none;-webkit-user-select:none}
 input,textarea,select{user-select:text;-webkit-user-select:text;cursor:text}
