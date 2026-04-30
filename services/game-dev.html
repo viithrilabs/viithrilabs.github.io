@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Development — ViiThri Labs</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+@font-face{font-family:'Georgia';src:url('../Brand Theme/fonts/georgiab.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('../Brand Theme/fonts/DMSans-Light.ttf') format('truetype');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('../Brand Theme/fonts/DMSans-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'DM Mono';src:url('../Brand Theme/fonts/DMMono-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap}
+</style>
+</head>
+<body>
+<div class="cursor" id="cur"></div><div class="cursor-ring" id="curR"></div>
+<nav class="sub-nav">
+  <a href="../index.html" class="sub-nav-back"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> Back</a>
+  <a href="../index.html" class="sub-nav-logo"><svg width="30" height="30" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="13" fill="#6C63FF"/><circle cx="28" cy="22" r="8" fill="white" fill-opacity=".52"/><circle cx="23" cy="31" r="8" fill="white" fill-opacity=".52"/><circle cx="33" cy="31" r="8" fill="white" fill-opacity=".52"/><circle cx="28" cy="28" r="3.5" fill="white"/></svg><span style="font-family:var(--font-d);font-size:.95rem;font-weight:700;color:var(--fg-1)">ViiThri<span style="color:var(--accent-h)">Labs</span></span></a>
+  <a href="../index.html#contact" class="btn-primary" style="font-size:12px;padding:9px 18px">Get a quote</a>
+</nav>
+<div class="page-hero">
+  <div class="page-tag">Service</div>
+  <h1 class="page-h1">Game Development</h1>
+  <p class="page-sub">End-to-end game development for mobile, PC, VR, and AR. From concept to launch and beyond — we design, build, and ship games that players love.</p>
+</div>
+<div class="content-wrap">
+  <div class="content-section">
+    <div class="cs-label">What we do</div>
+    <div class="cs-body">
+      <p>ViiThri Labs builds games across platforms — mobile hyper-casual, narrative PC titles, and immersive VR/AR experiences. We handle the full lifecycle: design, development, QA, store submission, and post-launch support. Every game we ship is built with a player-first mentality and performance-optimised code.</p>
+      <p>Whether you have a polished concept or just a rough idea, we work from where you are to where you need to be.</p>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="cs-label">Engines and tools</div>
+    <div class="tools-grid">
+      <div class="tool-item"><div class="tool-name">Unity</div><div class="tool-desc">Mobile, PC, VR/AR — our primary engine for most projects</div></div>
+      <div class="tool-item"><div class="tool-name">Unreal Engine 5</div><div class="tool-desc">High-fidelity PC experiences, Nanite and Lumen rendering</div></div>
+      <div class="tool-item"><div class="tool-name">Godot</div><div class="tool-desc">Lightweight 2D and 3D projects, fully open-source pipeline</div></div>
+      <div class="tool-item"><div class="tool-name">Blender</div><div class="tool-desc">3D modelling, rigging, animation, and scene composition</div></div>
+      <div class="tool-item"><div class="tool-name">Substance Painter</div><div class="tool-desc">PBR texturing and material authoring for game assets</div></div>
+      <div class="tool-item"><div class="tool-name">C# / C++</div><div class="tool-desc">Core scripting for Unity and Unreal projects respectively</div></div>
+      <div class="tool-item"><div class="tool-name">Firebase</div><div class="tool-desc">Analytics, remote config, crash reporting, and push notifications</div></div>
+      <div class="tool-item"><div class="tool-name">Photoshop / AI</div><div class="tool-desc">2D art, UI assets, and store marketing materials</div></div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="cs-label">Platforms we ship to</div>
+    <div class="tag-cloud">
+      <span class="tag hi">Android (Google Play)</span>
+      <span class="tag hi">iOS (App Store)</span>
+      <span class="tag">PC — Windows / macOS</span>
+      <span class="tag">Steam</span>
+      <span class="tag">Meta Quest (VR)</span>
+      <span class="tag">WebGL</span>
+      <span class="tag">itch.io</span>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="cs-label">Our process</div>
+    <div class="process-steps">
+      <div class="step"><div class="step-num">01</div><div class="step-content"><div class="step-title">Discovery and Concept</div><div class="step-desc">We deep-dive into your vision — target platform, audience, genre, mechanics, and art direction. We align on scope and produce a Game Design Document before any code is written.</div></div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-content"><div class="step-title">Prototype</div><div class="step-desc">A playable prototype in 2–4 weeks. Core loop, basic physics, rough visuals. This is where we validate the idea is actually fun before scaling the production.</div></div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-content"><div class="step-title">Alpha Development</div><div class="step-desc">Full feature development — all mechanics, levels, systems, and art. Regular builds for internal testing and stakeholder review throughout the sprint cycle.</div></div></div>
+      <div class="step"><div class="step-num">04</div><div class="step-content"><div class="step-title">Beta and QA</div><div class="step-desc">Comprehensive testing across devices, OS versions, and edge cases. Performance profiling and optimisation. Closed and open beta with real player feedback loops.</div></div></div>
+      <div class="step"><div class="step-num">05</div><div class="step-content"><div class="step-title">Launch</div><div class="step-desc">Store submission with metadata, screenshots, trailers, and localisation. We handle the submission process end-to-end and coordinate the release day.</div></div></div>
+      <div class="step"><div class="step-num">06</div><div class="step-content"><div class="step-title">Live Operations</div><div class="step-desc">Post-launch updates, seasonal content, analytics monitoring, and player feedback loops. We keep the game growing long after it ships.</div></div></div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="cs-label">What you receive</div>
+    <div class="tag-cloud">
+      <span class="tag">Game builds for all target platforms</span>
+      <span class="tag">Store submission assets and metadata</span>
+      <span class="tag">Analytics and crash reporting</span>
+      <span class="tag">Full source code</span>
+      <span class="tag">Technical documentation</span>
+      <span class="tag">60-day post-launch support</span>
+    </div>
+  </div>
+  <div class="cta-bar">
+    <div><h3>Ready to build your game?</h3><p>Tell us about your concept and we will put together a plan.</p></div>
+    <a href="../index.html#contact" class="btn-primary">Start a project <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1.5 10.5L10.5 1.5M10.5 1.5H4.5M10.5 1.5V7.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+  </div>
+</div>
+<footer class="sub-footer"><p>© 2026 ViiThri Labs</p><a href="../index.html">Back to home</a></footer>
+<script>
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
+</script>
+</body>
+</html>

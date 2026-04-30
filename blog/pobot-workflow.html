@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building POBOT — ViiThri Labs</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+@font-face{font-family:'Georgia';src:url('../Brand Theme/fonts/georgia.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Georgia';src:url('../Brand Theme/fonts/georgiab.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Georgia';src:url('../Brand Theme/fonts/georgiai.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('../Brand Theme/fonts/DMSans-Light.ttf') format('truetype');font-weight:300;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('../Brand Theme/fonts/DMSans-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'DM Mono';src:url('../Brand Theme/fonts/DMMono-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+</style>
+</head>
+<body>
+<div class="cursor" id="cur"></div><div class="cursor-ring" id="curR"></div>
+<nav class="sub-nav">
+  <a href="../index.html#blog" class="sub-nav-back"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> Blog</a>
+  <a href="../index.html" class="sub-nav-logo"><svg width="30" height="30" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="13" fill="#6C63FF"/><circle cx="28" cy="22" r="8" fill="white" fill-opacity=".52"/><circle cx="23" cy="31" r="8" fill="white" fill-opacity=".52"/><circle cx="33" cy="31" r="8" fill="white" fill-opacity=".52"/><circle cx="28" cy="28" r="3.5" fill="white"/></svg><span style="font-family:var(--font-d);font-size:.95rem;font-weight:700;color:var(--fg-1)">ViiThri<span style="color:var(--accent-h)">Labs</span></span></a>
+  <button class="theme-toggle" id="themeBtn" title="Toggle theme"><svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
+</nav>
+<article class="article-wrap">
+  <div style="display:inline-block;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-h);font-weight:500;padding:3px 10px;border-radius:9999px;background:var(--accent-dim);border:.5px solid var(--accent-border);margin-bottom:1.5rem">Behind the Build</div>
+  <h1 style="font-family:var(--font-d);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;letter-spacing:-.04em;line-height:1.1;color:var(--fg-1);margin-bottom:1.25rem">Building POBOT: How I automated my workflow</h1>
+  <div class="article-meta">
+    <span>5 min read</span><span class="sep">·</span>
+    <span>April 2026</span><span class="sep">·</span>
+    <span>Studio</span>
+  </div>
+  <div class="article-body">
+    <p>Every studio has its own version of The Grind — the non-creative, repetitive work that keeps everything moving but slowly drains the time and energy you want to spend on actual building. For ViiThri Labs, it was a collection of small tasks that individually took minutes but together consumed the better part of a morning.</p>
+    <p>Checking build statuses. Sending update messages to clients. Organising downloaded assets. Running the same Git commands across multiple repos. Generating the weekly summary report. None of it was hard. All of it was the same every single day.</p>
+    <h2>The breaking point</h2>
+    <p>The trigger was a week where three separate client emails went unanswered because I was buried in a Unity build — not because I forgot, but because the morning check-in script I was running manually got skipped. A small miss, but it made the problem clear: any workflow that depends on human consistency will eventually fail.</p>
+    <p>I needed something that ran whether I remembered or not. Something I could configure once and trust. POBOT was the answer to that.</p>
+    <h2>What POBOT actually does</h2>
+    <p>POBOT — the name comes from the idea of a repetitive bot that handles the boring — is a Python-based automation system that runs as a background process. It handles:</p>
+    <ul>
+      <li><strong>Task scheduling:</strong> Cron-style execution of any Python function or shell command at any interval</li>
+      <li><strong>File management:</strong> Watches specified directories and automatically organises, renames, or syncs files based on configurable rules</li>
+      <li><strong>API integrations:</strong> Connects to GitHub, Notion, and email — pulling status data and pushing summaries</li>
+      <li><strong>Notifications:</strong> Sends structured alerts via email when specific conditions are met</li>
+      <li><strong>Report generation:</strong> Generates and sends formatted daily and weekly summaries automatically</li>
+    </ul>
+    <p>The whole thing is configured through a single YAML file. Adding a new task is three lines. No GUI, no web interface, no overhead — just a config and a scheduler.</p>
+    <h2>The technical decisions</h2>
+    <p>I built POBOT in Python because that is the language I reach for when I need something that works quickly and stays maintainable. The key libraries:</p>
+    <ul>
+      <li><strong>APScheduler</strong> for the scheduling engine — battle-tested, flexible, handles both interval and cron-style triggers</li>
+      <li><strong>Click</strong> for the CLI interface — clean argument parsing without boilerplate</li>
+      <li><strong>HTTPX</strong> for async HTTP requests to external APIs</li>
+      <li><strong>SQLite</strong> for persisting job history and run logs locally</li>
+      <li><strong>Jinja2</strong> for templating the report and notification content</li>
+    </ul>
+    <p>The design principle throughout was: the simplest solution that works reliably. No Docker, no microservices, no message queues. Just a Python process that starts on boot and runs until it is told to stop.</p>
+    <h2>What it saved</h2>
+    <p>About three hours per week on average. More importantly, it removed an entire category of mental overhead — the nagging background awareness that you need to remember to do something. When POBOT handles it, you simply do not think about it anymore.</p>
+    <p>It has been running daily at ViiThri Labs since early 2025. Zero major failures. Two small bugs fixed in the first month. Now it just runs.</p>
+    <h2>What is next</h2>
+    <p>We are considering building a lightweight web dashboard on top of POBOT so the rest of the team can see job history and configure certain tasks without touching the YAML file. That might eventually become a product. We will see.</p>
+    <p>For now, it is exactly what it needs to be — a tool that solves a real problem and stays out of the way.</p>
+  </div>
+</article>
+<footer class="sub-footer"><p>© 2026 ViiThri Labs</p><a href="../index.html#blog">More posts</a></footer>
+<script>
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
+const btn=document.getElementById('themeBtn');
+const icon=document.getElementById('themeIcon');
+const moonSVG='<circle cx="12" cy="12" r="5" fill="currentColor" stroke="none"/><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="currentColor" stroke="none"/>';
+const sunSVG='<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+btn.addEventListener('click',()=>{
+  const isDark=document.documentElement.getAttribute('data-theme')==='dark';
+  document.documentElement.setAttribute('data-theme',isDark?'light':'dark');
+  icon.innerHTML=isDark?moonSVG:sunSVG;
+});
+</script>
+</body>
+</html>

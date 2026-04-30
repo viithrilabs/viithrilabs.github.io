@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Tools — ViiThri Labs</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+@font-face{font-family:'Georgia';src:url('../Brand Theme/fonts/georgiab.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('../Brand Theme/fonts/DMSans-Light.ttf') format('truetype');font-weight:300;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('../Brand Theme/fonts/DMSans-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'DM Mono';src:url('../Brand Theme/fonts/DMMono-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+</style>
+</head>
+<body>
+<div class="cursor" id="cur"></div><div class="cursor-ring" id="curR"></div>
+<nav class="sub-nav">
+  <a href="../index.html" class="sub-nav-back"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> Back</a>
+  <a href="../index.html" class="sub-nav-logo"><svg width="30" height="30" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="13" fill="#6C63FF"/><circle cx="28" cy="22" r="8" fill="white" fill-opacity=".52"/><circle cx="23" cy="31" r="8" fill="white" fill-opacity=".52"/><circle cx="33" cy="31" r="8" fill="white" fill-opacity=".52"/><circle cx="28" cy="28" r="3.5" fill="white"/></svg><span style="font-family:var(--font-d);font-size:.95rem;font-weight:700;color:var(--fg-1)">ViiThri<span style="color:var(--accent-h)">Labs</span></span></a>
+  <a href="../index.html#contact" class="btn-primary" style="font-size:12px;padding:9px 18px">Get a quote</a>
+</nav>
+<div class="page-hero">
+  <div class="page-tag">Service</div>
+  <h1 class="page-h1">Digital Tools</h1>
+  <p class="page-sub">Custom software and SaaS products built around how your business actually works. If off-the-shelf tools are slowing you down, we build the one that fits.</p>
+</div>
+<div class="content-wrap">
+  <div class="content-section">
+    <div class="cs-label">What we do</div>
+    <div class="cs-body">
+      <p>We build internal tools, SaaS products, automation systems, and custom software for businesses that have outgrown generic solutions. We start from the problem — not the technology — and work backwards to the simplest, most maintainable solution that genuinely solves it.</p>
+      <p>We built POBOT, our own internal automation tool, to solve our own workflow problems. It is now a core part of how ViiThri Labs operates every day. That is the standard we hold ourselves to for every client project.</p>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="cs-label">Technologies</div>
+    <div class="tools-grid">
+      <div class="tool-item"><div class="tool-name">Python</div><div class="tool-desc">Automation, scripting, data processing, and backend logic</div></div>
+      <div class="tool-item"><div class="tool-name">FastAPI</div><div class="tool-desc">High-performance Python REST APIs with automatic documentation</div></div>
+      <div class="tool-item"><div class="tool-name">React / Next.js</div><div class="tool-desc">Web-based dashboards and front-end interfaces for internal tools</div></div>
+      <div class="tool-item"><div class="tool-name">PostgreSQL</div><div class="tool-desc">Relational database for structured data with complex relationships</div></div>
+      <div class="tool-item"><div class="tool-name">Redis</div><div class="tool-desc">Caching, session storage, and real-time queuing for performance</div></div>
+      <div class="tool-item"><div class="tool-name">Docker</div><div class="tool-desc">Containerised deployment for consistent environments across servers</div></div>
+      <div class="tool-item"><div class="tool-name">Zapier / n8n</div><div class="tool-desc">Workflow automation connecting third-party services without custom code</div></div>
+      <div class="tool-item"><div class="tool-name">Stripe</div><div class="tool-desc">Subscription billing, one-time payments, and SaaS monetisation</div></div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="cs-label">What we build</div>
+    <div class="tag-cloud">
+      <span class="tag hi">Internal workflow tools</span>
+      <span class="tag hi">SaaS products</span>
+      <span class="tag">Automation pipelines</span>
+      <span class="tag">Admin dashboards</span>
+      <span class="tag">API integrations</span>
+      <span class="tag">Data processing systems</span>
+      <span class="tag">Notification and alert systems</span>
+      <span class="tag">Report generation</span>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="cs-label">Our process</div>
+    <div class="process-steps">
+      <div class="step"><div class="step-num">01</div><div class="step-content"><div class="step-title">Problem Definition</div><div class="step-desc">We document the exact problem, the current workflow, and where it breaks down. Most projects fail because the problem is not properly defined before building starts.</div></div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-content"><div class="step-title">Architecture Design</div><div class="step-desc">System design, data model, API contracts, and tech stack decision — all before writing code. We share this with you for sign-off.</div></div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-content"><div class="step-title">Build and Iterate</div><div class="step-desc">We build in usable increments. You get access to a staging environment throughout. Feedback is incorporated in each cycle, not at the end.</div></div></div>
+      <div class="step"><div class="step-num">04</div><div class="step-content"><div class="step-title">Testing</div><div class="step-desc">Unit tests for critical logic, integration tests for API flows, and end-to-end testing with real data before anything goes to production.</div></div></div>
+      <div class="step"><div class="step-num">05</div><div class="step-content"><div class="step-title">Deployment</div><div class="step-desc">Production deployment, environment configuration, monitoring setup, and rollback procedures. We do not hand over a zip file and disappear.</div></div></div>
+      <div class="step"><div class="step-num">06</div><div class="step-content"><div class="step-title">Documentation and Handover</div><div class="step-desc">Full technical documentation, deployment guides, and a handover session so your team can maintain and extend the tool independently.</div></div></div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="cs-label">What you receive</div>
+    <div class="tag-cloud">
+      <span class="tag">Production-ready deployment</span>
+      <span class="tag">Full source code</span>
+      <span class="tag">Technical documentation</span>
+      <span class="tag">API documentation</span>
+      <span class="tag">Test suite</span>
+      <span class="tag">Monitoring setup</span>
+      <span class="tag">90-day post-launch support</span>
+    </div>
+  </div>
+  <div class="cta-bar">
+    <div><h3>Have a workflow that needs a product?</h3><p>Describe the problem. We will figure out the solution together.</p></div>
+    <a href="../index.html#contact" class="btn-primary">Start a project <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1.5 10.5L10.5 1.5M10.5 1.5H4.5M10.5 1.5V7.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+  </div>
+</div>
+<footer class="sub-footer"><p>© 2026 ViiThri Labs</p><a href="../index.html">Back to home</a></footer>
+<script>
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
+</script>
+</body>
+</html>

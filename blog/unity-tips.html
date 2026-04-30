@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity Mobile Optimization — ViiThri Labs</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+@font-face{font-family:'Georgia';src:url('../Brand Theme/fonts/georgia.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Georgia';src:url('../Brand Theme/fonts/georgiab.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Georgia';src:url('../Brand Theme/fonts/georgiai.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('../Brand Theme/fonts/DMSans-Light.ttf') format('truetype');font-weight:300;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('../Brand Theme/fonts/DMSans-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'DM Mono';src:url('../Brand Theme/fonts/DMMono-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+</style>
+</head>
+<body>
+<div class="cursor" id="cur"></div><div class="cursor-ring" id="curR"></div>
+<nav class="sub-nav">
+  <a href="../index.html#blog" class="sub-nav-back"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> Blog</a>
+  <a href="../index.html" class="sub-nav-logo"><svg width="30" height="30" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="13" fill="#6C63FF"/><circle cx="28" cy="22" r="8" fill="white" fill-opacity=".52"/><circle cx="23" cy="31" r="8" fill="white" fill-opacity=".52"/><circle cx="33" cy="31" r="8" fill="white" fill-opacity=".52"/><circle cx="28" cy="28" r="3.5" fill="white"/></svg><span style="font-family:var(--font-d);font-size:.95rem;font-weight:700;color:var(--fg-1)">ViiThri<span style="color:var(--accent-h)">Labs</span></span></a>
+  <button class="theme-toggle" id="themeBtn" title="Toggle theme"><svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
+</nav>
+<article class="article-wrap">
+  <div style="display:inline-block;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-h);font-weight:500;padding:3px 10px;border-radius:9999px;background:var(--accent-dim);border:.5px solid var(--accent-border);margin-bottom:1.5rem">Game Dev</div>
+  <h1 style="font-family:var(--font-d);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;letter-spacing:-.04em;line-height:1.1;color:var(--fg-1);margin-bottom:1.25rem">Unity tips for mobile game optimization</h1>
+  <div class="article-meta">
+    <span>8 min read</span><span class="sep">·</span>
+    <span>March 2026</span><span class="sep">·</span>
+    <span>Studio</span>
+  </div>
+  <div class="article-body">
+    <p>Optimising a Unity game for mobile sounds straightforward until you are staring at a profiler that says your frame time is 28ms on a device that needs to hit 16ms. We went through this on our first mobile project — here is what actually made a difference.</p>
+    <p>This is not a comprehensive list. It is the specific things we found, in order of impact, that moved the needle on mid-range Android hardware.</p>
+    <h2>1. Texture compression is the first conversation</h2>
+    <p>The single largest win we found was switching from RGBA32 to ASTC for all textures. ASTC is the modern standard for Android and compresses to roughly a quarter of the size at similar quality. The GPU reads less data per frame and your APK size drops significantly.</p>
+    <p>For iOS, ASTC is similarly supported. Enable GPU instancing at the same time — if you have any repeated objects (trees, enemies, pickups), instancing collapses their draw calls into one.</p>
+    <h2>2. Atlas your UI sprites aggressively</h2>
+    <p>Every unique UI texture is a draw call. On a screen with 20 UI elements from 20 different sprites, you have at minimum 20 draw calls just for your HUD. Atlas packing combines them into a single texture — Unity's Sprite Atlas component handles this automatically if you set it up correctly.</p>
+    <p>Target under 5 draw calls for your entire UI layer. It is achievable with proper atlasing.</p>
+    <h2>3. The profiler is your only source of truth</h2>
+    <p>This sounds obvious but most mobile optimisation advice you find online is based on desktop assumptions. What kills performance on a mid-range Android is often different from what kills it on a PC. Connect the profiler to a real device — not the editor, not the emulator — before you optimise anything.</p>
+    <p>The Deep Profile mode in Unity's profiler shows you exactly which C# methods are consuming time. Run it for 60 seconds on a typical gameplay session. The culprits are usually obvious once you can see them.</p>
+    <h2>4. Object pooling for anything that spawns repeatedly</h2>
+    <p>Instantiate and Destroy are expensive. If your game spawns bullets, enemies, particles, or collectibles at any frequency, pool them. Unity 2021+ has a built-in Object Pool API under <code>UnityEngine.Pool</code> — use it instead of rolling your own.</p>
+    <p>The frame spike from a sudden Instantiate call is invisible on PC. On mobile it shows up as a dropped frame that players feel even if they cannot identify it.</p>
+    <h2>5. Camera configuration on mobile</h2>
+    <p>Two changes that consistently improved frame time on our project:</p>
+    <ul>
+      <li>Disable HDR on the main camera if you are not using post-processing that requires it. HDR doubles the bandwidth for the render target.</li>
+      <li>Set the camera's Depth Texture mode to None unless depth is actively needed. This eliminates a full-screen depth prepass on tile-based GPUs (which all mobile GPUs are).</li>
+    </ul>
+    <h2>6. Reduce SetPass calls, not just draw calls</h2>
+    <p>Most optimisation guides focus on draw calls. SetPass calls are more important on mobile — these are the expensive state changes that happen when the GPU needs different shader state for a new object. The way to reduce them is to batch objects that use the same material.</p>
+    <p>Check your Frame Debugger regularly. If you see the same shader being set repeatedly for similar objects, that is a batching problem, not a draw call problem.</p>
+    <h2>What did not help (for us)</h2>
+    <p>Reducing polygon count was a common suggestion we followed early on. It made almost no difference. Mobile GPU performance is almost never vertex-bound — it is bandwidth-bound and overdraw-bound. Optimise textures and fill rate before you spend time on mesh simplification.</p>
+    <p>LOD groups also made minimal difference for our game's scale. They are genuinely useful for open-world PC games. For a mobile game with a constrained view distance, the overhead of managing LOD transitions can cost more than it saves.</p>
+    <h2>The test matrix</h2>
+    <p>One thing we wish we had set up earlier: a consistent device test matrix. Pick three real devices that represent your target audience — low-end, mid-range, and flagship — and test on all three after every significant change. Emulators will lie to you about performance in ways that cost you weeks of debugging after the fact.</p>
+  </div>
+</article>
+<footer class="sub-footer"><p>© 2026 ViiThri Labs</p><a href="../index.html#blog">More posts</a></footer>
+<script>
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
+const btn=document.getElementById('themeBtn');
+const icon=document.getElementById('themeIcon');
+const moonSVG='<circle cx="12" cy="12" r="5" fill="currentColor" stroke="none"/><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="currentColor" stroke="none"/>';
+const sunSVG='<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+btn.addEventListener('click',()=>{const isDark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',isDark?'light':'dark');icon.innerHTML=isDark?moonSVG:sunSVG});
+</script>
+</body>
+</html>

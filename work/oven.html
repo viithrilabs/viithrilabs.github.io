@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ViiThri's Oven — ViiThri Labs</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+@font-face{font-family:'Georgia';src:url('../Brand Theme/fonts/georgiab.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('../Brand Theme/fonts/DMSans-Light.ttf') format('truetype');font-weight:300;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('../Brand Theme/fonts/DMSans-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'DM Mono';src:url('../Brand Theme/fonts/DMMono-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+</style>
+</head>
+<body>
+<div class="cursor" id="cur"></div><div class="cursor-ring" id="curR"></div>
+<nav class="sub-nav">
+  <a href="../index.html#work" class="sub-nav-back"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> Work</a>
+  <a href="../index.html" class="sub-nav-logo"><svg width="30" height="30" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="13" fill="#6C63FF"/><circle cx="28" cy="22" r="8" fill="white" fill-opacity=".52"/><circle cx="23" cy="31" r="8" fill="white" fill-opacity=".52"/><circle cx="33" cy="31" r="8" fill="white" fill-opacity=".52"/><circle cx="28" cy="28" r="3.5" fill="white"/></svg><span style="font-family:var(--font-d);font-size:.95rem;font-weight:700;color:var(--fg-1)">ViiThri<span style="color:var(--accent-h)">Labs</span></span></a>
+  <span style="display:inline-flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#4ADE80;background:rgba(74,222,128,.1);border:.5px solid rgba(74,222,128,.25);padding:5px 12px;border-radius:9999px;font-weight:500">Live</span>
+</nav>
+<div class="page-hero">
+  <div class="page-tag">Client · eCommerce</div>
+  <h1 class="page-h1">ViiThri's Oven</h1>
+  <p class="page-sub">A full eCommerce experience built for a Chennai-based home bakery. Designed and developed end-to-end — from brand identity to order fulfilment, serving real customers every week.</p>
+</div>
+<div class="content-wrap">
+  <div class="content-section">
+    <div class="cs-label">The brief</div>
+    <div class="cs-body">
+      <p>ViiThri's Oven is a homemade bakery specialising in custom cakes, cookies, and festive specials. The client needed a complete online presence — a brand identity that felt warm and artisanal, and an eCommerce site that made ordering genuinely easy for customers who were previously ordering only through social media DMs.</p>
+      <p>The goal was to move the entire order and payment process online, reduce back-and-forth communication, and give the bakery a professional home on the web.</p>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="cs-label">What we built</div>
+    <div class="tools-grid">
+      <div class="tool-item"><div class="tool-name">Product Catalogue</div><div class="tool-desc">Browseable catalogue with photography-first layout, filtering by category and occasion</div></div>
+      <div class="tool-item"><div class="tool-name">Custom Order Form</div><div class="tool-desc">Guided order flow for custom cakes — flavour, size, design, delivery date</div></div>
+      <div class="tool-item"><div class="tool-name">Online Payments</div><div class="tool-desc">UPI, card, and net banking via Razorpay integration with order confirmation</div></div>
+      <div class="tool-item"><div class="tool-name">Order Management</div><div class="tool-desc">Admin dashboard for the baker to manage incoming orders, statuses, and dates</div></div>
+      <div class="tool-item"><div class="tool-name">Email Notifications</div><div class="tool-desc">Automated confirmation and status update emails for every order milestone</div></div>
+      <div class="tool-item"><div class="tool-name">Mobile-First Design</div><div class="tool-desc">Fully responsive — the majority of customers order from mobile devices</div></div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="cs-label">Tech stack</div>
+    <div class="tag-cloud">
+      <span class="tag hi">HTML / CSS / JavaScript</span>
+      <span class="tag">Razorpay</span>
+      <span class="tag">Formspree</span>
+      <span class="tag">GitHub Pages</span>
+      <span class="tag">Custom domain</span>
+      <span class="tag">Email automation</span>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="cs-label">Design approach</div>
+    <div class="cs-body">
+      <p>The visual identity uses a warm cream and burnt orange palette — intentionally different from the indigo-dark studio brand. Playfair Display for headlines gives an artisanal, premium bakery feel. Photography is the hero on every product page. The entire experience is designed to make you hungry before you even get to checkout.</p>
+    </div>
+  </div>
+  <div class="cta-bar">
+    <div><h3>Want a site like this?</h3><p>We build eCommerce experiences for businesses of all sizes.</p></div>
+    <a href="../services/web-dev.html" class="btn-ghost">See Web Dev</a>
+    <a href="../index.html#contact" class="btn-primary">Start a project</a>
+  </div>
+</div>
+<footer class="sub-footer"><p>© 2026 ViiThri Labs</p><a href="../index.html">Back to home</a></footer>
+<script>
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POBOT — ViiThri Labs</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+@font-face{font-family:'Georgia';src:url('../Brand Theme/fonts/georgiab.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('../Brand Theme/fonts/DMSans-Light.ttf') format('truetype');font-weight:300;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('../Brand Theme/fonts/DMSans-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'DM Mono';src:url('../Brand Theme/fonts/DMMono-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.05);margin-top:1.5rem}
+.stat{background:var(--bg-surface);padding:1.5rem;display:flex;flex-direction:column;gap:.3rem}
+.stat-val{font-family:var(--font-d);font-size:2rem;font-weight:700;color:var(--fg-1);letter-spacing:-.04em}
+.stat-label{font-size:11.5px;color:var(--fg-4);font-weight:300}
+</style>
+</head>
+<body>
+<div class="cursor" id="cur"></div><div class="cursor-ring" id="curR"></div>
+<nav class="sub-nav">
+  <a href="../index.html#work" class="sub-nav-back"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> Work</a>
+  <a href="../index.html" class="sub-nav-logo"><svg width="30" height="30" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="13" fill="#6C63FF"/><circle cx="28" cy="22" r="8" fill="white" fill-opacity=".52"/><circle cx="23" cy="31" r="8" fill="white" fill-opacity=".52"/><circle cx="33" cy="31" r="8" fill="white" fill-opacity=".52"/><circle cx="28" cy="28" r="3.5" fill="white"/></svg><span style="font-family:var(--font-d);font-size:.95rem;font-weight:700;color:var(--fg-1)">ViiThri<span style="color:var(--accent-h)">Labs</span></span></a>
+  <span style="display:inline-flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#4ADE80;background:rgba(74,222,128,.1);border:.5px solid rgba(74,222,128,.25);padding:5px 12px;border-radius:9999px;font-weight:500">Live</span>
+</nav>
+<div class="page-hero">
+  <div class="page-tag">Tool · Internal Product</div>
+  <h1 class="page-h1">POBOT</h1>
+  <p class="page-sub">An intelligent automation tool built to eliminate repetitive workflows at ViiThri Labs. What started as a script to save 20 minutes per day became the core of how the studio operates.</p>
+</div>
+<div class="content-wrap">
+  <div class="content-section">
+    <div class="cs-label">The problem</div>
+    <div class="cs-body">
+      <p>Every day at ViiThri Labs involved the same tasks — checking task statuses across tools, sending update messages, managing file organisation, triggering builds, and tracking time. Each task took minutes. Together, they consumed hours per week.</p>
+      <p>No existing tool handled all of it without significant manual configuration. So we built POBOT — named for the repetitive bot-like nature of the work it replaced.</p>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="cs-label">What it does</div>
+    <div class="tools-grid">
+      <div class="tool-item"><div class="tool-name">Task Scheduling</div><div class="tool-desc">Time-based and event-driven task execution with cron-style configuration</div></div>
+      <div class="tool-item"><div class="tool-name">File Management</div><div class="tool-desc">Automated organisation, archiving, and sync across local and cloud storage</div></div>
+      <div class="tool-item"><div class="tool-name">API Integrations</div><div class="tool-desc">Connects to GitHub, Notion, email, and custom endpoints</div></div>
+      <div class="tool-item"><div class="tool-name">Notification System</div><div class="tool-desc">Smart alerts via email and messaging platforms with configurable rules</div></div>
+      <div class="tool-item"><div class="tool-name">Report Generation</div><div class="tool-desc">Automated daily and weekly summaries from multiple data sources</div></div>
+      <div class="tool-item"><div class="tool-name">CLI Interface</div><div class="tool-desc">Lightweight command-line interface for triggering tasks on demand</div></div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="cs-label">Tech stack</div>
+    <div class="tag-cloud">
+      <span class="tag hi">Python 3.11</span>
+      <span class="tag">APScheduler</span>
+      <span class="tag">Click (CLI)</span>
+      <span class="tag">HTTPX</span>
+      <span class="tag">SQLite</span>
+      <span class="tag">Jinja2 (templating)</span>
+      <span class="tag">GitHub Actions</span>
+      <span class="tag">YAML config</span>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="cs-label">Impact</div>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-val">3h+</div><div class="stat-label">saved per week</div></div>
+      <div class="stat"><div class="stat-val">100%</div><div class="stat-label">internal adoption</div></div>
+      <div class="stat"><div class="stat-val">Daily</div><div class="stat-label">active use</div></div>
+    </div>
+  </div>
+  <div class="cta-bar">
+    <div><h3>Need a tool like this?</h3><p>We build custom automation and internal software for teams like yours.</p></div>
+    <a href="../services/digital-tools.html" class="btn-ghost">See Digital Tools</a>
+    <a href="../index.html#contact" class="btn-primary">Start a project</a>
+  </div>
+</div>
+<footer class="sub-footer"><p>© 2026 ViiThri Labs</p><a href="../index.html">Back to home</a></footer>
+<script>
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
+</script>
+</body>
+</html>

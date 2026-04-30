@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untitled Game — ViiThri Labs</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+@font-face{font-family:'Georgia';src:url('../Brand Theme/fonts/georgiab.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('../Brand Theme/fonts/DMSans-Light.ttf') format('truetype');font-weight:300;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('../Brand Theme/fonts/DMSans-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'DM Mono';src:url('../Brand Theme/fonts/DMMono-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+.stealth-block{background:var(--accent-dim);border:.5px solid var(--accent-border);border-radius:var(--r-lg);padding:2.5rem;text-align:center;margin-top:2rem}
+.stealth-block h3{font-family:var(--font-d);font-size:1.4rem;font-weight:700;color:var(--fg-1);margin-bottom:.6rem}
+.stealth-block p{font-size:13.5px;color:var(--fg-3);font-weight:300;line-height:1.75;max-width:400px;margin:0 auto 1.5rem}
+</style>
+</head>
+<body>
+<div class="cursor" id="cur"></div><div class="cursor-ring" id="curR"></div>
+<nav class="sub-nav">
+  <a href="../index.html#work" class="sub-nav-back"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> Work</a>
+  <a href="../index.html" class="sub-nav-logo"><svg width="30" height="30" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="13" fill="#6C63FF"/><circle cx="28" cy="22" r="8" fill="white" fill-opacity=".52"/><circle cx="23" cy="31" r="8" fill="white" fill-opacity=".52"/><circle cx="33" cy="31" r="8" fill="white" fill-opacity=".52"/><circle cx="28" cy="28" r="3.5" fill="white"/></svg><span style="font-family:var(--font-d);font-size:.95rem;font-weight:700;color:var(--fg-1)">ViiThri<span style="color:var(--accent-h)">Labs</span></span></a>
+  <span style="display:inline-flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-h);background:var(--accent-dim);border:.5px solid var(--accent-border);padding:5px 12px;border-radius:9999px;font-weight:500">In Development</span>
+</nav>
+<div class="page-hero">
+  <div class="page-tag">Game · Mobile</div>
+  <h1 class="page-h1">Untitled Game</h1>
+  <p class="page-sub">ViiThri Labs' first original mobile game is in development. A Unity-powered experience for Android and iOS — simple mechanics, deep progression. More details when it is ready.</p>
+</div>
+<div class="content-wrap">
+  <div class="content-section">
+    <div class="cs-label">What we can share</div>
+    <div class="cs-body">
+      <p>This is a stealth project. We are in active development and will share more when the time is right. What we can say: it is a mobile-first game built in Unity, targeting Android and iOS simultaneously, with a core loop designed around accessibility and replayability.</p>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="cs-label">Platform and tech</div>
+    <div class="tag-cloud">
+      <span class="tag hi">Android (Google Play)</span>
+      <span class="tag hi">iOS (App Store)</span>
+      <span class="tag">Unity 6</span>
+      <span class="tag">C#</span>
+      <span class="tag">Firebase Analytics</span>
+      <span class="tag">Admob</span>
+    </div>
+  </div>
+  <div class="stealth-block">
+    <h3>Stay in the loop.</h3>
+    <p>Drop your email and we will let you know when the game is ready for early access.</p>
+    <a href="../index.html#contact" class="btn-primary">Get notified</a>
+  </div>
+</div>
+<footer class="sub-footer"><p>© 2026 ViiThri Labs</p><a href="../index.html">Back to home</a></footer>
+<script>
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
+</script>
+</body>
+</html>

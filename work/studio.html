@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Dashboard — ViiThri Labs</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+@font-face{font-family:'Georgia';src:url('../Brand Theme/fonts/georgiab.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('../Brand Theme/fonts/DMSans-Light.ttf') format('truetype');font-weight:300;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('../Brand Theme/fonts/DMSans-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'DM Mono';src:url('../Brand Theme/fonts/DMMono-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+</style>
+</head>
+<body>
+<div class="cursor" id="cur"></div><div class="cursor-ring" id="curR"></div>
+<nav class="sub-nav">
+  <a href="../index.html#work" class="sub-nav-back"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> Work</a>
+  <a href="../index.html" class="sub-nav-logo"><svg width="30" height="30" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="13" fill="#6C63FF"/><circle cx="28" cy="22" r="8" fill="white" fill-opacity=".52"/><circle cx="23" cy="31" r="8" fill="white" fill-opacity=".52"/><circle cx="33" cy="31" r="8" fill="white" fill-opacity=".52"/><circle cx="28" cy="28" r="3.5" fill="white"/></svg><span style="font-family:var(--font-d);font-size:.95rem;font-weight:700;color:var(--fg-1)">ViiThri<span style="color:var(--accent-h)">Labs</span></span></a>
+  <span style="display:inline-flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-h);background:var(--accent-dim);border:.5px solid var(--accent-border);padding:5px 12px;border-radius:9999px;font-weight:500">In Development</span>
+</nav>
+<div class="page-hero">
+  <div class="page-tag">Tool · Internal</div>
+  <h1 class="page-h1">Studio Dashboard</h1>
+  <p class="page-sub">Internal tooling built specifically for how ViiThri Labs operates — project pipelines, client management, invoicing, and timelines, all in one place. We eat our own cooking.</p>
+</div>
+<div class="content-wrap">
+  <div class="content-section">
+    <div class="cs-label">Why we built it</div>
+    <div class="cs-body">
+      <p>Running a studio means tracking multiple projects simultaneously — each with its own deadlines, client contacts, invoice schedules, and deliverables. Generic project management tools are either too broad or require significant configuration to match how a small studio actually works.</p>
+      <p>Studio Dashboard is purpose-built for ViiThri Labs. It knows our project types, our billing model, and our workflow. It is also the clearest demonstration of what we offer under the Digital Tools service — we build for ourselves with the same standards we apply to client work.</p>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="cs-label">Core features</div>
+    <div class="tools-grid">
+      <div class="tool-item"><div class="tool-name">Project Pipeline</div><div class="tool-desc">Kanban-style view of all active projects with status, deadline, and health indicators</div></div>
+      <div class="tool-item"><div class="tool-name">Client Records</div><div class="tool-desc">Centralised contact database with project history and communication log</div></div>
+      <div class="tool-item"><div class="tool-name">Invoice Management</div><div class="tool-desc">Create, send, and track invoices with payment status and automatic reminders</div></div>
+      <div class="tool-item"><div class="tool-name">Time Tracking</div><div class="tool-desc">Per-project time logging linked to billing and profitability reports</div></div>
+      <div class="tool-item"><div class="tool-name">Deliverable Tracker</div><div class="tool-desc">Checklist-based milestone tracking with client-facing progress view</div></div>
+      <div class="tool-item"><div class="tool-name">Revenue Dashboard</div><div class="tool-desc">Monthly revenue, pipeline value, and projected earnings at a glance</div></div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="cs-label">Tech stack</div>
+    <div class="tag-cloud">
+      <span class="tag hi">Python / FastAPI</span>
+      <span class="tag hi">React</span>
+      <span class="tag">PostgreSQL</span>
+      <span class="tag">Redis</span>
+      <span class="tag">Docker</span>
+      <span class="tag">Razorpay (billing)</span>
+      <span class="tag">SMTP (email)</span>
+    </div>
+  </div>
+  <div class="cta-bar">
+    <div><h3>Need something like this?</h3><p>We build internal tools tailored to how your team actually works.</p></div>
+    <a href="../services/digital-tools.html" class="btn-ghost">See Digital Tools</a>
+    <a href="../index.html#contact" class="btn-primary">Start a project</a>
+  </div>
+</div>
+<footer class="sub-footer"><p>© 2026 ViiThri Labs</p><a href="../index.html">Back to home</a></footer>
+<script>
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
+</script>
+</body>
+</html>
