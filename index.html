@@ -60,12 +60,19 @@ nav.sc{background:rgba(12,12,20,.94);border-color:var(--border)}
 .dot{width:28px;height:2px;background:rgba(255,255,255,.22);border-radius:2px;cursor:pointer;transition:background .3s,width .3s}
 .dot.on{background:var(--accent);width:44px}
 .grid-ov{position:absolute;inset:0;pointer-events:none;z-index:3;background-image:linear-gradient(rgba(108,99,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(108,99,255,.025) 1px,transparent 1px);background-size:80px 80px}
-/* Float mark — visible watermark */
-.float-mark{
-  position:absolute;right:5%;top:50%;transform:translateY(-50%);
-  opacity:.22;pointer-events:none;z-index:6;
+/* Float mark — lives INSIDE each slide, between photo and overlay */
+/* DOM order: slide-bg → slide-glow → slide-fm → slide-ov → slide-cnt   */
+/* The overlay darkens it the same way it darkens the photo — natural integration */
+.slide-glow{
+  position:absolute;right:-12%;top:50%;transform:translateY(-50%);
+  width:700px;height:700px;
+  background:radial-gradient(circle,rgba(108,99,255,.38) 0%,rgba(108,99,255,.08) 45%,transparent 70%);
+  pointer-events:none;border-radius:50%;
+}
+.slide-fm{
+  position:absolute;right:4%;top:50%;transform:translateY(-50%);
   animation:spin 28s linear infinite;
-  filter:drop-shadow(0 0 32px rgba(108,99,255,.5));
+  pointer-events:none;opacity:.65;mix-blend-mode:screen;
 }
 @keyframes spin{from{transform:translateY(-50%) rotate(0deg)}to{transform:translateY(-50%) rotate(360deg)}}
 .scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:5px;opacity:.45;transition:opacity .6s;z-index:6;pointer-events:none;animation:bob 2.5s ease-in-out infinite}
@@ -78,6 +85,7 @@ nav.sc{background:rgba(12,12,20,.94);border-color:var(--border)}
 .s3 .slide-bg{background-image:url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1800&q=80')}
 
 /* SECTION SHARED */
+.featured,#work,#services,#blog,#team,#contact{scroll-snap-align:start}
 .sec-head{padding:5rem 3.5rem 2.5rem;display:flex;align-items:flex-end;justify-content:space-between;gap:2rem}
 .sec-head h2{font-family:var(--font-d);font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:700;letter-spacing:-.04em;line-height:1}
 .sec-head h2 em{font-style:italic;color:var(--accent-h)}
@@ -286,17 +294,11 @@ footer{background:var(--bg-800);border-top:.5px solid var(--border);padding:3.5r
 <!-- Hero -->
 <section class="featured" id="hero">
   <div class="grid-ov"></div>
-  <div class="float-mark">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="360" height="360" fill="none">
-      <rect width="56" height="56" rx="13" fill="#6C63FF"/>
-      <circle cx="28" cy="22" r="8" fill="white" fill-opacity=".55"/>
-      <circle cx="23" cy="31" r="8" fill="white" fill-opacity=".55"/>
-      <circle cx="33" cy="31" r="8" fill="white" fill-opacity=".55"/>
-      <circle cx="28" cy="28" r="3.5" fill="white"/>
-    </svg>
-  </div>
   <div class="slide s1 on">
-    <div class="slide-bg"></div><div class="slide-ov"></div>
+    <div class="slide-bg"></div>
+    <div class="slide-glow"></div>
+    <div class="slide-fm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="380" height="380" fill="none"><rect width="56" height="56" rx="13" fill="#6C63FF"/><circle cx="28" cy="22" r="8" fill="white" fill-opacity=".55"/><circle cx="23" cy="31" r="8" fill="white" fill-opacity=".55"/><circle cx="33" cy="31" r="8" fill="white" fill-opacity=".55"/><circle cx="28" cy="28" r="3.5" fill="white"/></svg></div>
+    <div class="slide-ov"></div>
     <div class="slide-cnt">
       <div class="s-cat">Tool · Internal Product</div>
       <h1 class="s-title">POBOT</h1>
@@ -305,7 +307,10 @@ footer{background:var(--bg-800);border-top:.5px solid var(--border);padding:3.5r
     </div>
   </div>
   <div class="slide s2">
-    <div class="slide-bg"></div><div class="slide-ov"></div>
+    <div class="slide-bg"></div>
+    <div class="slide-glow"></div>
+    <div class="slide-fm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="380" height="380" fill="none"><rect width="56" height="56" rx="13" fill="#6C63FF"/><circle cx="28" cy="22" r="8" fill="white" fill-opacity=".55"/><circle cx="23" cy="31" r="8" fill="white" fill-opacity=".55"/><circle cx="33" cy="31" r="8" fill="white" fill-opacity=".55"/><circle cx="28" cy="28" r="3.5" fill="white"/></svg></div>
+    <div class="slide-ov"></div>
     <div class="slide-cnt">
       <div class="s-cat">Client Work · eCommerce</div>
       <h1 class="s-title">ViiThri's Oven</h1>
@@ -314,7 +319,10 @@ footer{background:var(--bg-800);border-top:.5px solid var(--border);padding:3.5r
     </div>
   </div>
   <div class="slide s3">
-    <div class="slide-bg"></div><div class="slide-ov"></div>
+    <div class="slide-bg"></div>
+    <div class="slide-glow"></div>
+    <div class="slide-fm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="380" height="380" fill="none"><rect width="56" height="56" rx="13" fill="#6C63FF"/><circle cx="28" cy="22" r="8" fill="white" fill-opacity=".55"/><circle cx="23" cy="31" r="8" fill="white" fill-opacity=".55"/><circle cx="33" cy="31" r="8" fill="white" fill-opacity=".55"/><circle cx="28" cy="28" r="3.5" fill="white"/></svg></div>
+    <div class="slide-ov"></div>
     <div class="slide-cnt">
       <div class="s-cat">Game · Mobile · In Development</div>
       <h1 class="s-title">Something is being built.</h1>
